@@ -29,6 +29,7 @@ def v_to_p(velocity_data, rotor_data):
     p_data = np.zeros((len(velocity_data), len(velocity_data[0])), float)
     powercurve_data = powercurve.read_data(rotor_data)
     a, b, c, d, cut_in_v = powercurve.function_fit(powercurve_data, plotter=False)
+    # Change plotter ^ to True in order to see fit plots
     for i, row in enumerate(velocity_data):
         for j, velocity in enumerate(row):
             if velocity > cut_in_v:
